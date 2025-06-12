@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment - ZEE PHYSIO FITNESS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Book an Appointment</h1>
+    </header>
+    <main>
+        <form onsubmit="sendWhatsApp(); return false;">
+            <label for="name">Patient Name:</label><br>
+            <input type="text" id="name" required><br><br>
+
+            <label for="phone">Phone Number:</label><br>
+            <input type="tel" id="phone" required><br><br>
+
+            <label for="service">Select Service:</label><br>
+            <select id="service">
+                <option>Physiotherapy</option>
+                <option>Hijama (Cupping)</option>
+                <option>Electrotherapy</option>
+                <option>Dry Needling</option>
+                <option>Laser Therapy</option>
+            </select><br><br>
+
+            <label for="date">Appointment Date:</label><br>
+            <input type="date" id="date" required><br><br>
+
+            <label for="time">Time:</label><br>
+            <input type="time" id="time" required><br><br>
+
+            <button type="submit">Send Booking via WhatsApp</button>
+        </form>
+    </main>
+    <footer>
+        <p>&copy; 2025 ZEE PHYSIO FITNESS</p>
+    </footer>
+
+    <script>
+        function sendWhatsApp() {
+            var name = document.getElementById("name").value;
+            var phone = document.getElementById("phone").value;
+            var service = document.getElementById("service").value;
+            var date = document.getElementById("date").value;
+            var time = document.getElementById("time").value;
+
+            var message = `Hello, I want to book an appointment at ZEE PHYSIO FITNESS.\nName: ${name}\nPhone: ${phone}\nService: ${service}\nDate: ${date}\nTime: ${time}`;
+            var whatsappUrl = `https://wa.me/916387523367?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
